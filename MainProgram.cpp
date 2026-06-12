@@ -1,3 +1,12 @@
+// ============================================================================
+//  Lab: C++ Templates  (STUDENT VERSION)
+//  Course: Object-Oriented Programming with C++
+//  Single file only. No headers. C++17.
+//
+//  Complete every TODO. Do NOT rename the functions/classes/methods,
+//  and do NOT change their signatures - the autograder depends on them.
+// ============================================================================
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -27,12 +36,10 @@ private:
    B second_;
 
 public:
-   // constructor
    Pair(A first, B second)
        : first_(first), second_(second) {
    }
 
-   // getters
    A getFirst() const {
        return first_;
    }
@@ -41,7 +48,6 @@ public:
        return second_;
    }
 
-   // setters
    void setFirst(A value) {
        first_ = value;
    }
@@ -50,7 +56,6 @@ public:
        second_ = value;
    }
 
-   // swap values (assume A == B when called)
    void swapValues() {
        auto temp = first_;
        first_ = second_;
@@ -65,17 +70,14 @@ private:
    std::vector<T> items_;
 
 public:
-   // add item
    void add(const T& item) {
        items_.push_back(item);
    }
 
-   // size
    int size() const {
        return static_cast<int>(items_.size());
    }
 
-   // get item
    T get(int index) const {
        if (index < 0 || index >= size()) {
            throw std::out_of_range("Invalid index");
@@ -83,7 +85,6 @@ public:
        return items_[index];
    }
 
-   // total
    T total() const {
        T sum = T();
 
@@ -101,7 +102,6 @@ int describe(const T& value) {
    return 1;
 }
 
-// Full specialization for std::string
 template <>
 int describe<std::string>(const std::string& value) {
    return 2 + static_cast<int>(value.length());
@@ -114,31 +114,29 @@ private:
    T data_[N];
 
 public:
-   // default constructor
    FixedArray() {
-       for (int i = 0; i < N; ++i) {
+       for (int i = 0; i < N; i++) {
            data_[i] = T();
        }
    }
 
-   // capacity
    int capacity() const {
        return N;
    }
 
-   // set
    void set(int index, const T& value) {
        if (index < 0 || index >= N) {
            throw std::out_of_range("Invalid index");
        }
+
        data_[index] = value;
    }
 
-   // at
    T at(int index) const {
        if (index < 0 || index >= N) {
            throw std::out_of_range("Invalid index");
        }
+
        return data_[index];
    }
 };
