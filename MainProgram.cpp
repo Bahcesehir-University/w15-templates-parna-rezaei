@@ -1,12 +1,3 @@
-// ============================================================================
-//  Lab: C++ Templates  (STUDENT VERSION)
-//  Course: Object-Oriented Programming with C++
-//  Single file only. No headers. C++17.
-//
-//  Complete every TODO. Do NOT rename the functions/classes/methods,
-//  and do NOT change their signatures - the autograder depends on them.
-// ============================================================================
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -36,9 +27,7 @@ private:
    B second_;
 
 public:
-   Pair(A first, B second)
-       : first_(first), second_(second) {
-   }
+   Pair(A first, B second) : first_(first), second_(second) {}
 
    A getFirst() const {
        return first_;
